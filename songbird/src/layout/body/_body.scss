@@ -1,0 +1,13 @@
+@import '/src/layout/body/container';
+
+.body {
+  background-color: $background;
+  font-family: Montserrat;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: left;
+  margin: 0;
+  box-sizing: border-box;
+}

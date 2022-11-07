@@ -1,0 +1,70 @@
+// header
+@import '/src/abstracts/const/style/variables';
+
+.header {
+  width: 100%;
+  margin-top: 0.5rem;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.header__top-panel {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+}
+
+.top-panel_logo {
+  background-image: url($logo);
+  width: 200px;
+  height: 55px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.top-panel_score {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+
+  h5 {
+    font-size: 1.1rem;
+  }
+}
+
+.bird-menu__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  list-style: none;
+  background-color: $button-color;
+  box-sizing: border-box;
+}
+
+.bird-menu__item {
+  flex: auto;
+  text-align: center;
+  box-sizing: border-box;
+
+  .item_link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: 0;
+    line-height: 1.25;
+    color: #fff;
+    // background-color: #00bc8c;
+    border: 0 solid transparent;
+    text-decoration: none;
+  }
+}
+
+.active {
+  background-color: $button-color-active;
+  border-color: $button-color-border;
+}
