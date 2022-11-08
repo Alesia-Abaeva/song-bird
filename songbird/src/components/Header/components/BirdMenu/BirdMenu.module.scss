@@ -1,0 +1,37 @@
+@import '/src/theme/variables';
+
+.bird-menu__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  list-style: none;
+  background-color: $button-color;
+  box-sizing: border-box;
+}
+
+.bird-menu__item {
+  flex: auto;
+  text-align: center;
+  box-sizing: border-box;
+
+  .item_link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: 0;
+    line-height: 1.25;
+    color: #fff;
+    // background-color: #00bc8c;
+    border: 0 solid transparent;
+    text-decoration: none;
+  }
+}
+
+.active {
+  background-color: $button-color-active;
+  border-color: $button-color-border;
+}
