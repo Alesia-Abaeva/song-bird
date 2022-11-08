@@ -1,0 +1,17 @@
+@import '/src/theme/variables';
+
+.bird-random {
+  display: flex;
+  padding: 1rem;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  justify-content: center;
+  border-radius: 0.25rem;
+  background-color: $section-background-color;
+}
+
+.bird-random__img {
+  width: 200px;
+  height: 155px;
+  border-radius: 10px;
+}

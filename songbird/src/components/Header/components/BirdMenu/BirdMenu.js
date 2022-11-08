@@ -30,16 +30,3 @@ export const renderBirdMenu = () => {
 
   return birdMenu;
 };
-
-// for (let value of valuesPuzzle) {
-//     const puzzleNumber = document.createElement("button");
-//     puzzleNumber.classList.add("item");
-//     puzzleNumber.setAttribute("data-matrix-id", value);
-//     puzzleNumber.setAttribute("draggable", true);
-
-//     puzzleNumber.innerHTML = `<span class="button-border">${value}</span>`;
-//     // puzzleNumber.innerHTML = `<span class="button-border" draggable=true>${value}</span>`;
-
-//     puzzleContainer.appendChild(puzzleNumber);
-//   }
-// }
