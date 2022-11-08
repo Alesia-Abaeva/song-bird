@@ -1,0 +1,23 @@
+@import '/src/theme/colors';
+
+.body {
+  background-color: $background;
+  font-family: Montserrat;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: left;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+  //   background-color: aqua;
+}

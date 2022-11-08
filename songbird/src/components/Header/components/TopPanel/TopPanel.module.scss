@@ -1,0 +1,44 @@
+@import '/src/theme/variables';
+
+.header__top-panel {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+}
+
+.top-panel_logo {
+  background-image: url($logo);
+  width: 200px;
+  height: 55px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.top-panel_score {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+
+  h5 {
+    font-size: 1.1rem;
+  }
+}
+
+.top-panel_logo {
+  background-image: url($logo);
+  width: 200px;
+  height: 55px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.top-panel_score {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+
+  h5 {
+    font-size: 1.1rem;
+  }
+}

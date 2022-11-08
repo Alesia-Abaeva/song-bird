@@ -1,4 +1,4 @@
-const birdsData = [
+const BIRDS_DATA = [
   [
     {
       id: 1,
