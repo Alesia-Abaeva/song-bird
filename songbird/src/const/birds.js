@@ -366,5 +366,3 @@ export const BIRDS_DATA = [
     },
   ],
 ];
-
-export default birdsData;
