@@ -1,0 +1,27 @@
+@import '/src/theme/variables';
+
+.bird-random__infornation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infornation__hide-name {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+
+  // TODO - вынести с mixin
+  border: 1px solid $border-botton;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-radius: 0;
+  padding: 0.25rem;
+  background-color: $section-background-color;
+  position: relative;
+  display: block;
+}

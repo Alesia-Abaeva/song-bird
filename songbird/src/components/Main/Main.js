@@ -1,14 +1,14 @@
 // import { renderBirdMenu, renderTopPanel } from './components';
 
-import styles from './Main.module.scss';
+import { renderBirdRandom } from './components';
 
 export const renderMain = () => {
   const main = document.createElement('main');
 
-  const topPanel = renderTopPanel();
-  const birdMenu = renderBirdMenu();
+  const birdRandom = renderBirdRandom();
+  // const birdMenu = renderBirdMenu();
 
-  main.append(topPanel, birdMenu);
+  main.append(birdRandom);
 
-  return { header, topPanel };
+  return main;
 };

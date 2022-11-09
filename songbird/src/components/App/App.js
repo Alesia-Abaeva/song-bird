@@ -1,4 +1,5 @@
 import { renderHeader } from '../Header';
+import { renderMain } from '../Main/Main';
 import styles from './App.module.scss';
 
 export const store = {
@@ -15,6 +16,7 @@ export const renderApp = () => {
   appContiner.classList.add(styles['container']);
 
   const { header, topPanel } = renderHeader();
+  const main = renderMain();
 
   // const button = document.createElement('button');
   // button.innerText = 'добавить';
@@ -28,6 +30,7 @@ export const renderApp = () => {
 
   appContiner.append(
     header,
+    main,
     // button,
   );
 };

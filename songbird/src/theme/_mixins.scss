@@ -1,0 +1,10 @@
+@mixin icon-size($property) {
+  width: $property;
+  height: $property;
+  background-size: $property $property;
+}
+
+@mixin width-heigth($width, $heigth) {
+  width: $width;
+  height: $heigth;
+}

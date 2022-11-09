@@ -1,5 +1,6 @@
 import { COVER_CARDS } from '../../../../const/bird-hide-card';
 import styles from './BirdRandom.module.scss';
+import { renderBirdInformations } from './components/BirdsRandomInformation/BirdsRandomInformation';
 
 export const renderBirdRandom = () => {
   const birdRandom = document.createElement('section');
@@ -11,14 +12,10 @@ export const renderBirdRandom = () => {
   img.setAttribute('src', COVER_CARDS);
   img.setAttribute('alt', 'bird');
 
-  // SCORE
-  const score = document.createElement('div');
-  score.classList.add(styles['top-panel_score']);
-  const scoreH5 = document.createElement('h5');
-  scoreH5.innerHTML = `Score: ${store.score}`;
-  score.append(scoreH5);
+  // INFORMATION
+  const birdRandomInformation = renderBirdInformations();
 
-  topPanel.append(logo, score);
+  birdRandom.append(img, birdRandomInformation);
 
-  return topPanel;
+  return birdRandom;
 };
