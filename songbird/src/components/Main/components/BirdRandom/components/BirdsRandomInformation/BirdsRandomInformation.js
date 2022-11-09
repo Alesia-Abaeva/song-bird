@@ -1,5 +1,5 @@
 import styles from './BirdsRandomInformation.module.scss';
-import { renderHideAudio } from './components/InformationAudio';
+import { renderHideAudio } from '../InformationAudio';
 
 export const renderBirdInformations = () => {
   const birdRandomInformations = document.createElement('div');
@@ -9,9 +9,9 @@ export const renderBirdInformations = () => {
   hideName.classList.add(styles['infornation__hide-name']);
   hideName.innerHTML = '******';
 
-  const informHideAudio = renderHideAudio();
+  // const informHideAudio = renderHideAudio();
 
-  birdRandomInformations.append(hideName, informHideAudio);
+  birdRandomInformations.append(hideName);
 
   return birdRandomInformations;
 };

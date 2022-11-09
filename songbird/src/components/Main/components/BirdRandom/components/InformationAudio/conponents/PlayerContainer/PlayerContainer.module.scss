@@ -33,6 +33,12 @@
   border-radius: 0.25rem;
 }
 
+.player__timer {
+  display: flex;
+  justify-content: space-between;
+  height: 1.3rem;
+}
+
 .player-icon {
   @include icon-size(15px);
   background-position: center center;

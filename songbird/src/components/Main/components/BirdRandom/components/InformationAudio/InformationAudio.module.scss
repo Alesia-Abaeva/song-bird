@@ -67,14 +67,14 @@
 //   transform: scale(1.1);
 // }
 
-// .play {
-//   @include icon-size(40px);
-//   background-image: url('/assets/icons/AudioControls/play.svg');
-// }
+.play {
+  @include icon-size(40px);
+  background-image: url('/assets/icons/AudioControls/play.svg');
+}
 
-// .pause {
-//   background-image: url('/assets/icons/AudioControls/pause.svg');
-// }
+.pause {
+  background-image: url('/assets/icons/AudioControls/pause.svg');
+}
 
 // .sound-on {
 //   background-image: url('/assets/icons/AudioControls/volume-on.svg');

@@ -1,6 +1,6 @@
 import styles from './PlayerSound.module.scss';
 // import slylesIcon from '';
-import { elementsCreate } from '../../../../../../../../../../utils/create-elements';
+import { elementsCreate } from 'src/utils/create-elements';
 
 export const renderPlayerSound = () => {
   const playerSound = elementsCreate('div', 'audio__player_sound');

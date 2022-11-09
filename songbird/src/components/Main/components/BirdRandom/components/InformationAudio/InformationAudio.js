@@ -1,28 +1,44 @@
+import { pauseSong, playSong } from '../../../../../../utils/player/play-pause';
 import { renderPlayerContainer } from './conponents/PlayerContainer';
 import { renderPlayerSound } from './conponents/PlayerSound';
 import styles from './InformationAudio.module.scss';
 
-export const renderHideAudio = () => {
+export const renderHideAudio = (number) => {
   const informationAudio = document.createElement('div');
   informationAudio.classList.add(styles['infornation__audio']);
 
   const audio = document.createElement('audio');
   audio.classList.add('audio');
+  audio.setAttribute(
+    'src',
+    'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3',
+  );
+
+  let duration = audio.duration;
+
+  audio.onloadeddata = () => {
+    duration = audio.duration;
+    console.log(duration);
+  };
   // добавить атрибут src
 
   const audioPlayer = document.createElement('div');
   audioPlayer.classList.add(styles['audio__player']);
 
   const playerSound = renderPlayerSound();
-  const playerContainer = renderPlayerContainer();
+  const playerContainer = renderPlayerContainer('00:12', async (target) => {
+    const isPlay = target.classList.contains('pause');
+    console.log(isPlay);
+    console.log(target);
+
+    if (isPlay) {
+      await pauseSong(target, audio, styles['pause']);
+    } else {
+      await playSong(target, audio, styles['pause']);
+    }
+  });
 
   audioPlayer.append(playerContainer, playerSound);
-
-  // const playerContainer = document.createElement('div');
-  // hideName.classList.add(styles['audio__player_container']);
-
-  // const playerSound = document.createElement('div');
-  // hideName.classList.add(styles['audio__player_sound']);
 
   informationAudio.append(audio, audioPlayer);
 

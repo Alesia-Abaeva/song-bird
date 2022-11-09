@@ -1,6 +1,7 @@
 import { COVER_CARDS } from '../../../../const/bird-hide-card';
 import styles from './BirdRandom.module.scss';
 import { renderBirdInformations } from './components/BirdsRandomInformation/BirdsRandomInformation';
+import { renderHideAudio } from './components/InformationAudio';
 
 export const renderBirdRandom = () => {
   const birdRandom = document.createElement('section');
@@ -13,9 +14,10 @@ export const renderBirdRandom = () => {
   img.setAttribute('alt', 'bird');
 
   // INFORMATION
-  const birdRandomInformation = renderBirdInformations();
+  const name = renderBirdInformations();
+  const audio = renderHideAudio();
 
-  birdRandom.append(img, birdRandomInformation);
+  birdRandom.append(img, name, audio);
 
   return birdRandom;
 };
