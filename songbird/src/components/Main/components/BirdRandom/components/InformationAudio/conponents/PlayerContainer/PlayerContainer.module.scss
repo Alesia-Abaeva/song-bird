@@ -15,7 +15,7 @@
 
 .player__progress {
   @include width-heigth(100%, 5px);
-  background: #e4e9ed7e;
+  background: $border-botton;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -23,14 +23,12 @@
 }
 
 .progress {
-  background: #9e36ff8c;
+  background: $button-color-active;
   border-radius: 5px;
   height: 3px;
   display: flex;
-  height: 1rem;
   overflow: hidden;
   font-size: 0.75rem;
-  border-radius: 0.25rem;
 }
 
 .player__timer {

@@ -30,7 +30,7 @@ export const renderHideAudio = (number) => {
     duration = formatTime(audio.duration);
     console.log('onloadeddata===', duration);
 
-    const playerContainer = renderPlayerContainer(duration, async (target) => {
+    const playerContainer = renderPlayerContainer(audio, duration, async (target) => {
       const isPlay = target.classList.contains('pause');
       if (isPlay) {
         await pauseSong(target, audio, styles['pause']);
@@ -55,6 +55,7 @@ export const renderHideAudio = (number) => {
   });
 
   const playerContainer = renderPlayerContainer(
+    audio,
     'loading',
     // async (target) => {
     //   const isPlay = target.classList.contains('pause');

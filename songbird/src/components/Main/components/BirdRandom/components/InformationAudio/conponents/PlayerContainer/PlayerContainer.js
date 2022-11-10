@@ -1,7 +1,8 @@
 import { elementsCreate } from 'src/utils/create-elements';
+import { formatTime } from 'src/utils/player/format-time';
 import styles from './PlayerContainer.module.scss';
 
-export const renderPlayerContainer = (duration, onPlay) => {
+export const renderPlayerContainer = (audio, duration, onPlay) => {
   const playerContainer = document.createElement('div');
   playerContainer.classList.add(styles['audio__player_container']);
 
@@ -17,6 +18,12 @@ export const renderPlayerContainer = (duration, onPlay) => {
   progress.classList.add(styles['progress']);
 
   playerProgress.append(progress);
+
+  // function setProgress(event){
+  //   const widthProgress = this.clientWidth
+  //   const widthClickX = event.offsetX
+  //   const durationF = audio.duration
+  //   audio.currentTime = (widthClickX / widthProgress) * durationF
 
   //   timer
   const timer = elementsCreate('div', 'player__timer');
@@ -47,8 +54,21 @@ export const renderPlayerContainer = (duration, onPlay) => {
 
   playerContainer.append(timerContainer, playerControls);
 
-  const audio = document.querySelector('.audio');
-  console.log('audio', audio);
+  // UPDATE PROGRESS
+  audio.addEventListener('timeupdate', (event) => {
+    const { duration, currentTime } = event.srcElement;
+    timerCurrentTime.innerHTML = formatTime(currentTime);
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+  });
+
+  // CHANGE RANGE PROGRESS
+  playerProgress.onclick = (event) => {
+    const widthProgress = playerProgress.clientWidth;
+    const widthClick = event.offsetX;
+    const duration = audio.duration;
+    audio.currentTime = (widthClick / widthProgress) * duration;
+  };
 
   return playerContainer;
 };
