@@ -12,7 +12,7 @@ export const renderBirdList = (number) => {
   const birdListNAmes = elementsCreate('ul', styles['bird-list__name']);
   const buttonNextLevel = elementsCreate('button', styles['button-next-level']);
   buttonNextLevel.innerHTML = 'Next Level';
-  // buttonNextLevel.disabled = true;
+  buttonNextLevel.disabled = true;
 
   for (let i = 0; i < BIRDS_DATA[number].length; i++) {
     const nameItem = elementsCreate('li', styles['bird-list__item']);

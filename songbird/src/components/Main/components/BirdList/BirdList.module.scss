@@ -102,10 +102,12 @@
 
   &:focus {
     outline: 0;
-    -webkit-box-shadow: 0 0 0 0.2rem rgb(55 90 127 / 25%);
-    box-shadow: 0 0 0 0.2rem rgb(55 90 127 / 25%);
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
+    box-shadow: none;
+    border: none;
+    // -webkit-box-shadow: 0 0 0 0.1rem rgb(55 90 127 / 25%);
+    // box-shadow: 0 0 0 0.1rem rgb(55 90 127 / 25%);
+    outline: 0.5px solid $white;
+    // outline: 5px auto -webkit-focus-ring-color;
   }
 
   &:disabled {
