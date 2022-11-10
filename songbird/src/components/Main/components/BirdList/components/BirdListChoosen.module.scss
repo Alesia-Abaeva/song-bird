@@ -1,0 +1,28 @@
+@import '/src/theme/variables';
+
+.bird-list__data-info {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.data-info__details {
+  display: block;
+  margin-top: 40px;
+  padding: 1rem;
+  border: 1px solid #444;
+  width: 100%;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #303030;
+  background-clip: border-box;
+  // border: 1px solid rgba(0,0,0,0.125);
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
