@@ -2,10 +2,6 @@ import { renderHeader } from '../Header';
 import { renderMain } from '../Main/Main';
 import styles from './App.module.scss';
 
-export const store = {
-  score: 0,
-};
-
 export const renderApp = () => {
   // накидываем стиль на body
   document.body.classList.add(styles['body']);

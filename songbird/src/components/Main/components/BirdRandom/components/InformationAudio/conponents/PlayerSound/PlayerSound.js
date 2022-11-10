@@ -2,7 +2,7 @@ import styles from './PlayerSound.module.scss';
 // import slylesIcon from '';
 import { elementsCreate } from 'src/utils/create-elements';
 
-export const renderPlayerSound = () => {
+export const renderPlayerSound = (muted) => {
   const playerSound = elementsCreate('div', 'audio__player_sound');
 
   const buttonSoundOn = elementsCreate('button', 'sound-on');
@@ -15,6 +15,11 @@ export const renderPlayerSound = () => {
   volumoBoxRange.setAttribute('value', '80');
   volumoBoxRange.setAttribute('min', '0');
   volumoBoxRange.setAttribute('max', '100');
+
+  const audio = document.querySelector('.audio');
+  console.log('audio======', audio);
+
+  buttonSoundOn.onclick = (event) => muted(event.target);
 
   soundVolumeBox.append(volumoBoxRange);
 

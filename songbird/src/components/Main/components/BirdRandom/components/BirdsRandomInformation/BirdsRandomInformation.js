@@ -1,7 +1,10 @@
 import styles from './BirdsRandomInformation.module.scss';
+
 import { renderHideAudio } from '../InformationAudio';
+import { store } from 'src';
 
 export const renderBirdInformations = () => {
+  // console.log('!!!----birdRandomInformations', store);
   const birdRandomInformations = document.createElement('div');
   birdRandomInformations.classList.add(styles['bird-random__infornation']);
 

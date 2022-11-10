@@ -23,13 +23,11 @@ export const renderPlayerContainer = (duration, onPlay) => {
 
   const timerCurrentTime = document.createElement('span');
   timerCurrentTime.setAttribute('id', 'timer_currentTime');
-  // timerCurrentTime.classList.add(styles['timer_currentTime']);
   timerCurrentTime.classList.add(styles['timer_description']);
   timerCurrentTime.innerHTML = '00:00';
 
   const timerEndTime = document.createElement('span');
   timerEndTime.setAttribute('id', 'timer_end');
-  // timerEndTime.classList.add(styles['timer_end']);
   timerEndTime.classList.add(styles['timer_description']);
   timerEndTime.innerHTML = duration;
 
@@ -37,14 +35,12 @@ export const renderPlayerContainer = (duration, onPlay) => {
 
   timerContainer.append(playerProgress, timer);
 
-  //   img.setAttribute('src', COVER_CARDS);
-  //   img.setAttribute('alt', 'bird');
-
   // CONTROLS
   const playerControls = elementsCreate('div', 'player__controls');
   const playButton = elementsCreate('button', 'play');
   playButton.classList.add(styles['player-icon']);
 
+  // FUNCTION ONPLAY
   playButton.onclick = (event) => onPlay(event.target);
 
   playerControls.append(playButton);
@@ -52,7 +48,7 @@ export const renderPlayerContainer = (duration, onPlay) => {
   playerContainer.append(timerContainer, playerControls);
 
   const audio = document.querySelector('.audio');
-  console.log(audio);
+  console.log('audio', audio);
 
   return playerContainer;
 };

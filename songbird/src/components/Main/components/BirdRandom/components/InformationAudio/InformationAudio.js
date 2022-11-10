@@ -1,9 +1,16 @@
+import { store } from 'src';
+import { formatTime } from 'src/utils/player/format-time';
+import { handleVolume } from '../../../../../../utils/player/handle-volume';
 import { pauseSong, playSong } from '../../../../../../utils/player/play-pause';
 import { renderPlayerContainer } from './conponents/PlayerContainer';
 import { renderPlayerSound } from './conponents/PlayerSound';
+
 import styles from './InformationAudio.module.scss';
 
 export const renderHideAudio = (number) => {
+  // получаем ссылку на аудио из глобального объекта
+  const audioSrc = store.birdHidden.audio;
+
   const informationAudio = document.createElement('div');
   informationAudio.classList.add(styles['infornation__audio']);
 
@@ -11,32 +18,52 @@ export const renderHideAudio = (number) => {
   audio.classList.add('audio');
   audio.setAttribute(
     'src',
-    'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3',
+
+    audioSrc,
   );
 
-  let duration = audio.duration;
-
+  // let playerContainer;
+  let duration;
   audio.onloadeddata = () => {
-    duration = audio.duration;
-    console.log(duration);
+    duration = formatTime(audio.duration);
+    console.log('onloadeddata===', duration);
+
+    const playerContainer = renderPlayerContainer(duration, async (target) => {
+      const isPlay = target.classList.contains('pause');
+      if (isPlay) {
+        await pauseSong(target, audio, styles['pause']);
+      } else {
+        await playSong(target, audio, styles['pause']);
+      }
+    });
+
+    audioPlayer.innerHTML = '';
+    audioPlayer.append(playerContainer, playerSound);
   };
+
+  console.log('duration===', duration);
   // добавить атрибут src
 
   const audioPlayer = document.createElement('div');
   audioPlayer.classList.add(styles['audio__player']);
 
-  const playerSound = renderPlayerSound();
-  const playerContainer = renderPlayerContainer('00:12', async (target) => {
-    const isPlay = target.classList.contains('pause');
-    console.log(isPlay);
+  // FUNCTION SOUND-ON
+  const playerSound = renderPlayerSound((target) => {
     console.log(target);
-
-    if (isPlay) {
-      await pauseSong(target, audio, styles['pause']);
-    } else {
-      await playSong(target, audio, styles['pause']);
-    }
+    handleVolume(target, audio);
   });
+
+  const playerContainer = renderPlayerContainer(
+    'loading',
+    // async (target) => {
+    //   const isPlay = target.classList.contains('pause');
+    //   if (isPlay) {
+    //     await pauseSong(target, audio, styles['pause']);
+    //   } else {
+    //     await playSong(target, audio, styles['pause']);
+    //   }
+    // }
+  );
 
   audioPlayer.append(playerContainer, playerSound);
 

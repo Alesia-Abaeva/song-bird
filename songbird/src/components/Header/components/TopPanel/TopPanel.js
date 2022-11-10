@@ -1,4 +1,5 @@
-import { store } from '../../../App';
+// import { store } from '../../../App';
+import { store } from 'src';
 import styles from './TopPanel.module.scss';
 
 export const renderTopPanel = () => {

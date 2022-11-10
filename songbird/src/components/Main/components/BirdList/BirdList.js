@@ -1,5 +1,8 @@
+import { store } from 'src';
+import { randArray } from 'src/utils/random-array';
 import { BIRDS_DATA } from '../../../../const/birds';
 import { elementsCreate } from '../../../../utils/create-elements';
+
 import styles from './BirdList.module.scss';
 
 export const renderBirdList = (number) => {
