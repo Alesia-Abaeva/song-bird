@@ -22,6 +22,8 @@ export const renderHideAudio = (number) => {
     audioSrc,
   );
 
+  store.audio = audio;
+
   // let playerContainer;
   let duration;
   audio.onloadeddata = () => {
@@ -41,14 +43,13 @@ export const renderHideAudio = (number) => {
     audioPlayer.append(playerContainer, playerSound);
   };
 
-  console.log('duration===', duration);
   // добавить атрибут src
 
   const audioPlayer = document.createElement('div');
   audioPlayer.classList.add(styles['audio__player']);
 
   // FUNCTION SOUND-ON
-  const playerSound = renderPlayerSound((target) => {
+  const playerSound = renderPlayerSound(audio, (target) => {
     console.log(target);
     handleVolume(target, audio);
   });

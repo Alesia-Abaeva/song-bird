@@ -8,6 +8,7 @@ export const store = {
   birds: null,
   birdHidden: null,
   score: 123,
+  audio: null,
 };
 
 const init = () => {

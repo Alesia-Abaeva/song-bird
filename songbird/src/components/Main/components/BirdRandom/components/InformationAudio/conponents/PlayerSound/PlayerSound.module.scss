@@ -43,21 +43,21 @@
   &::-webkit-slider-thumb {
     -webkit-appearance: none !important;
     background: $button-color-active;
-    @include width-heigth(10px, 3px);
+    @include width-heigth(0px, 3px);
     border-radius: 50%;
     box-shadow: -100vw 0 0 100vw $button-color-active;
   }
 
   &::-moz-range-thumb {
     background: $button-color-active;
-    @include width-heigth(10px, 4px);
+    @include width-heigth(0px, 4px);
     border-radius: 100%;
   }
 
   &::-ms-thumb {
     -webkit-appearance: none !important;
     background: $button-color-active;
-    @include width-heigth(10px, 4px);
+    @include width-heigth(0px, 4px);
     border-radius: 100%;
   }
 }
