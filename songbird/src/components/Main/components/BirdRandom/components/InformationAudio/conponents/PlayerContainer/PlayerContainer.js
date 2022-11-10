@@ -19,12 +19,6 @@ export const renderPlayerContainer = (audio, duration, onPlay) => {
 
   playerProgress.append(progress);
 
-  // function setProgress(event){
-  //   const widthProgress = this.clientWidth
-  //   const widthClickX = event.offsetX
-  //   const durationF = audio.duration
-  //   audio.currentTime = (widthClickX / widthProgress) * durationF
-
   //   timer
   const timer = elementsCreate('div', 'player__timer');
 

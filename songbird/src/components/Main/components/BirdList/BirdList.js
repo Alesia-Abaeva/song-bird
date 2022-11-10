@@ -10,6 +10,9 @@ export const renderBirdList = (number) => {
 
   const birdContainer = elementsCreate('div', styles['bird-list__container']);
   const birdListNAmes = elementsCreate('ul', styles['bird-list__name']);
+  const buttonNextLevel = elementsCreate('button', styles['button-next-level']);
+  buttonNextLevel.innerHTML = 'Next Level';
+  // buttonNextLevel.disabled = true;
 
   for (let i = 0; i < BIRDS_DATA[number].length; i++) {
     const nameItem = elementsCreate('li', styles['bird-list__item']);
@@ -21,7 +24,7 @@ export const renderBirdList = (number) => {
 
   birdContainer.append(birdListNAmes);
 
-  birdList.append(birdContainer);
+  birdList.append(birdContainer, buttonNextLevel);
 
   return birdList;
 };
