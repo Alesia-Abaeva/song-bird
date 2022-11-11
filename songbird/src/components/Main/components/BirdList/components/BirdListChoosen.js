@@ -1,7 +1,11 @@
 import { elementsCreate } from 'src/utils/create-elements';
 import styles from './BirdListChoosen.module.scss';
+import { store } from 'src';
+import { renderHideAudio } from '../../BirdRandom/components/InformationAudio';
 
 export const renderCardBird = () => {
+  const birdInfo = store.birdHidden;
+
   const dataInfoContainer = elementsCreate('div', styles['bird-list__data-info']);
   const dataInfoDetails = elementsCreate('div', styles['data-info__details']);
 
@@ -10,31 +14,41 @@ export const renderCardBird = () => {
   <span>Послушайте плеер.</span>
   <span>Выберите птицу из списка</span>`;
 
-  dataInfoDetails.append(instruction);
+  console.log(store, '-------------------------------------store');
+
+  const dataInfoCardBird = elementsCreate('div', 'data-info__card-bird');
+  const cardBirdImg = elementsCreate('img', styles['bird-img']);
+  cardBirdImg.setAttribute('src', birdInfo.image);
+  cardBirdImg.setAttribute('alt', 'bird');
+
+  const dataInfoBirdName = elementsCreate('div', styles['data-info__bird-name']);
+  const birdName = elementsCreate('h4', styles['bird-name']);
+  birdName.innerHTML = `${birdInfo.name}`;
+  dataInfoBirdName.append(birdName);
+
+  const dataInfoSpecies = elementsCreate('div', styles['data-info__bird-name']);
+  const species = elementsCreate('span', styles['bird-name']);
+  species.innerHTML = `${birdInfo.species}`;
+  dataInfoSpecies.append(species);
+
+  const dataInfoDescription = elementsCreate('div', styles['data-info__bird-name']);
+  const description = elementsCreate('span', styles['bird-name']);
+  description.innerHTML = `${birdInfo.description}`;
+  dataInfoDescription.append(description);
+
+  const blockAudio = renderHideAudio(0);
+
+  dataInfoDetails.append(
+    instruction,
+    dataInfoCardBird,
+    cardBirdImg,
+    dataInfoBirdName,
+    dataInfoSpecies,
+    blockAudio,
+    dataInfoDescription,
+  );
+
   dataInfoContainer.append(dataInfoDetails);
-
-  //   const cardBlock = elementsCreate();
-
-  //   ===================
-
-  //   const birdContainer = elementsCreate('div', styles['bird-list__container']);
-  //   const birdListNAmes = elementsCreate('ul', styles['bird-list__name']);
-
-  //   for (let i = 0; i < BIRDS_DATA[number].length; i++) {
-  //     const nameItem = elementsCreate('li', styles['bird-list__item']);
-  //     nameItem.innerHTML = `<span class="name-item_chekpoint"></span>
-  //       ${BIRDS_DATA[number][i].name}`;
-
-  //     birdListNAmes.append(nameItem);
-  //   }
-
-  //   birdContainer.append(birdListNAmes);
-
-  //   const buttonNextLevel = elementsCreate('button', styles['button-next-level']);
-  //   buttonNextLevel.innerHTML = 'Next Level';
-  //   buttonNextLevel.disabled = true;
-
-  //   birdList.append(birdContainer, buttonNextLevel);
 
   return dataInfoContainer;
 };

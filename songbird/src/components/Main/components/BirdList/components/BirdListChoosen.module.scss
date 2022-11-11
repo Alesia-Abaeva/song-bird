@@ -26,3 +26,22 @@
   border-radius: 0.25rem;
   box-sizing: border-box;
 }
+
+.bird-img {
+  // @include width-heigth(200px, 155px);
+  // border-radius: 10px;
+  // margin: 0 auto 25px;
+
+  @extend %bird-img;
+
+  // @include img;
+}
+
+.data-info__bird-name {
+  display: flex;
+  text-align: center;
+}
+
+.bird-name {
+  margin: 0;
+}
