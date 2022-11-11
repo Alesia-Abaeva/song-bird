@@ -22,7 +22,7 @@ export const renderBirdList = (number) => {
 
   birdContainer.append(birdListNAmes);
 
-  const cardBird = renderCardBird();
+  const cardBird = renderCardBird(store);
 
   const buttonNextLevel = elementsCreate('button', styles['button-next-level']);
   buttonNextLevel.innerHTML = 'Next Level';

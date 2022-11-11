@@ -28,20 +28,44 @@
 }
 
 .bird-img {
-  // @include width-heigth(200px, 155px);
-  // border-radius: 10px;
-  // margin: 0 auto 25px;
-
   @extend %bird-img;
-
-  // @include img;
 }
 
-.data-info__bird-name {
+.data-info__card-bird {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data-info__bird-name,
+.data-info__species {
+  width: 100%;
   display: flex;
   text-align: center;
+  background-color: #303030;
+  border: 1px solid #555;
+  position: relative;
+  display: block;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-radius: 0;
+  padding: 0.25rem;
+  border-top-width: 0;
 }
 
 .bird-name {
+  font-size: 1.40625rem;
   margin: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.data-info__discriptions {
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+}
+
+.discriptions {
+  text-align: left;
 }

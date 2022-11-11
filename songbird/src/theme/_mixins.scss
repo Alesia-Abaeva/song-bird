@@ -8,3 +8,15 @@
   width: $width;
   height: $heigth;
 }
+
+@mixin botton-border {
+  background-color: #303030;
+  border: 1px solid #555;
+  position: relative;
+  display: block;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-radius: 0;
+  padding: 0.25rem;
+  border-top-width: 0;
+}

@@ -3,8 +3,8 @@ import styles from './BirdListChoosen.module.scss';
 import { store } from 'src';
 import { renderHideAudio } from '../../BirdRandom/components/InformationAudio';
 
-export const renderCardBird = () => {
-  const birdInfo = store.birdHidden;
+export const renderCardBird = (object) => {
+  const birdInfo = object.birdHidden;
 
   const dataInfoContainer = elementsCreate('div', styles['bird-list__data-info']);
   const dataInfoDetails = elementsCreate('div', styles['data-info__details']);
@@ -16,7 +16,7 @@ export const renderCardBird = () => {
 
   console.log(store, '-------------------------------------store');
 
-  const dataInfoCardBird = elementsCreate('div', 'data-info__card-bird');
+  const dataInfoCardBird = elementsCreate('div', styles['data-info__card-bird']);
   const cardBirdImg = elementsCreate('img', styles['bird-img']);
   cardBirdImg.setAttribute('src', birdInfo.image);
   cardBirdImg.setAttribute('alt', 'bird');
@@ -26,27 +26,27 @@ export const renderCardBird = () => {
   birdName.innerHTML = `${birdInfo.name}`;
   dataInfoBirdName.append(birdName);
 
-  const dataInfoSpecies = elementsCreate('div', styles['data-info__bird-name']);
-  const species = elementsCreate('span', styles['bird-name']);
+  const dataInfoSpecies = elementsCreate('div', styles['data-info__species']);
+  const species = elementsCreate('span', styles['species']);
   species.innerHTML = `${birdInfo.species}`;
   dataInfoSpecies.append(species);
 
-  const dataInfoDescription = elementsCreate('div', styles['data-info__bird-name']);
-  const description = elementsCreate('span', styles['bird-name']);
+  const dataInfoDescription = elementsCreate('div', styles['data-info__discriptions']);
+  const description = elementsCreate('span', styles['discriptions']);
   description.innerHTML = `${birdInfo.description}`;
   dataInfoDescription.append(description);
 
-  const blockAudio = renderHideAudio(0);
+  const blockAudio = renderHideAudio(birdInfo.id);
 
-  dataInfoDetails.append(
-    instruction,
-    dataInfoCardBird,
+  dataInfoCardBird.append(
     cardBirdImg,
     dataInfoBirdName,
     dataInfoSpecies,
     blockAudio,
     dataInfoDescription,
   );
+
+  dataInfoDetails.append(instruction, dataInfoCardBird);
 
   dataInfoContainer.append(dataInfoDetails);
 
