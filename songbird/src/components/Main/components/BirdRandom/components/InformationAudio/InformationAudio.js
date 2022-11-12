@@ -7,9 +7,9 @@ import { renderPlayerSound } from './conponents/PlayerSound';
 
 import styles from './InformationAudio.module.scss';
 
-export const renderHideAudio = (number) => {
+export const renderHideAudio = (sound) => {
   // получаем ссылку на аудио из глобального объекта
-  const audioSrc = store.birdHidden.audio;
+  const audioSrc = sound.audio;
 
   const informationAudio = document.createElement('div');
   informationAudio.classList.add(styles['infornation__audio']);

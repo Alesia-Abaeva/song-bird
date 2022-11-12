@@ -23,7 +23,7 @@ export const renderBirdRandom = () => {
 
   // INFORMATION
   const name = renderBirdInformations();
-  const audio = renderHideAudio();
+  const audio = renderHideAudio(store.birdHidden);
 
   birdRandom.append(img, name, audio);
 

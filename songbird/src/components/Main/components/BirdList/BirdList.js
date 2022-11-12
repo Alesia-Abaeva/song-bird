@@ -11,18 +11,25 @@ export const renderBirdList = (number) => {
 
   const birdContainer = elementsCreate('div', styles['bird-list__container']);
   const birdListNames = elementsCreate('ul', styles['bird-list__name']);
+  let cardBird = renderCardBird(store.birdHidden);
+  const birdNameArray = [];
 
   for (let i = 0; i < BIRDS_DATA[number].length; i++) {
     const nameItem = elementsCreate('li', styles['bird-list__item']);
     nameItem.innerHTML = `<span class="name-item_chekpoint"></span>
     ${BIRDS_DATA[number][i].name}`;
 
+    nameItem.onclick = (event) => {
+      cardBird = renderCardBird(BIRDS_DATA[number][i], 'bird');
+      birdList.innerHTML = '';
+      birdList.append(birdContainer, cardBird, buttonNextLevel);
+    };
+
+    birdNameArray.push(nameItem);
     birdListNames.append(nameItem);
   }
 
   birdContainer.append(birdListNames);
-
-  const cardBird = renderCardBird(store);
 
   const buttonNextLevel = elementsCreate('button', styles['button-next-level']);
   buttonNextLevel.innerHTML = 'Next Level';

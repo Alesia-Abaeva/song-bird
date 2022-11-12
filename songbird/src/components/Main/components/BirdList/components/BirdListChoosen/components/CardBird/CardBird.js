@@ -29,7 +29,7 @@ export const renderCardBirdInformation = (object) => {
   dataInfoDescription.append(description);
 
   // Аудио
-  const blockAudio = renderHideAudio(object.id);
+  const blockAudio = renderHideAudio(object);
 
   dataInfoCardBird.append(
     cardBirdImg,
