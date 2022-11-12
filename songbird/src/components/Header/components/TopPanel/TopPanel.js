@@ -13,7 +13,10 @@ export const renderTopPanel = () => {
   // SCORE
   const score = document.createElement('div');
   score.classList.add(styles['top-panel_score']);
+
   const scoreH5 = document.createElement('h5');
+  scoreH5.setAttribute('id', 'score');
+
   scoreH5.innerHTML = `Score: ${store.score}`;
   score.append(scoreH5);
 

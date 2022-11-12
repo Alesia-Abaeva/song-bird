@@ -7,7 +7,8 @@ import styles from './BirdList.module.scss';
 import { renderCardBird } from './components/BirdListChoosen';
 
 export const renderBirdList = (number) => {
-  let isWin = false;
+  let isFirstWin = true;
+  let balls = store.balls;
   const birdList = elementsCreate('section', 'bird-list');
 
   const birdContainer = elementsCreate('div', styles['bird-list__container']);
@@ -21,28 +22,38 @@ export const renderBirdList = (number) => {
     ${bird[i].name}`;
 
     nameItem.onclick = (event) => {
+      // навешивам цвет и звук для вариантов ответа
       if (bird[i].name === store.birdHidden.name) {
-        isWin = true;
+        store.isWin = true;
         nameItem.classList.add(styles['success']);
+
+        // обновление глобаного занчения score
+        // TODO - испавить постоянное обновление данные при нажатии верного ответа!
+        if (isFirstWin) {
+          store.score += balls;
+        }
+
+        const score = document.getElementById('score');
+        score.innerHTML = `Score: ${store.score}`;
+
+        // изменяем содержимое скрытого блока
+        const img = document.querySelector('.bird-random__img');
+        img.setAttribute('src', bird[i].image);
+
+        const birdName = document.querySelector('.infornation__hide-name');
+        birdName.innerHTML = bird[i].name;
       }
 
-      switch (isWin) {
+      switch (store.isWin) {
         case false:
           nameItem.classList.add(styles['error']);
+          --balls;
+          console.log('BAAALS', balls);
           break;
         case true:
+          isFirstWin = false;
           break;
       }
-      // навешивам цвет и звук для вариантов ответа
-      // if (bird[i].name === store.birdHidden.name) {
-      //   console.log('WINNER!');
-      //   nameItem.classList.add(styles['success']);
-
-      //   return;
-      // } else {
-      //   nameItem.classList.add(styles['error']);
-      // }
-
       // рендерим блок с птицами в зависимости от выбранного варианта
       cardBird = renderCardBird(bird[i], 'bird');
       birdList.innerHTML = '';
