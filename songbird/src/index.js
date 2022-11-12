@@ -7,8 +7,9 @@ export const store = {
   stage: 0,
   birds: null,
   birdHidden: null,
-  score: 123,
+  score: 0,
   audio: null,
+  balls: 5,
 };
 
 const init = () => {

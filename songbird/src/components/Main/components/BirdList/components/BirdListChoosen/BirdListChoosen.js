@@ -18,7 +18,7 @@ export const renderCardBird = (object, tag) => {
 
   <span>Выберите птицу из списка</span>`;
 
-  // console.log(store, '-------------------------------------store');
+  console.log(store, '-------------------------------------store');
 
   // const dataInfoCardBird = elementsCreate('div', styles['data-info__card-bird']);
   const dataInfoCardBird = renderCardBirdInformation(object);

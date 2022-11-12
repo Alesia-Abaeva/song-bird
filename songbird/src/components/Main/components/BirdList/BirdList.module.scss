@@ -69,13 +69,13 @@
 }
 
 .error {
-  &.name-item_chekpoint {
+  span {
     background-color: $error;
   }
 }
 
 .success {
-  &.name-item_chekpoint {
+  span {
     background-color: $button-color-active;
   }
 }
