@@ -50,6 +50,10 @@
     border-bottom-left-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
   }
+
+  &:hover {
+    background-color: $border-name-birds;
+  }
 }
 
 .name-item_chekpoint {

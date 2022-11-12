@@ -27,6 +27,15 @@
   box-sizing: border-box;
 }
 
+.details_instruction {
+  display: flex;
+  flex-direction: column;
+}
+
+.hiden {
+  display: none !important;
+}
+
 // .bird-img {
 //   @extend %bird-img;
 // }

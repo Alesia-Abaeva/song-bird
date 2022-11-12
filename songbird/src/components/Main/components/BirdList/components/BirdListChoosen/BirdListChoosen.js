@@ -15,12 +15,16 @@ export const renderCardBird = (object) => {
   const instruction = elementsCreate('p', styles['details_instruction']);
   instruction.innerHTML = `
   <span>Послушайте плеер.</span>
+  
   <span>Выберите птицу из списка</span>`;
 
   console.log(store, '-------------------------------------store');
 
   // const dataInfoCardBird = elementsCreate('div', styles['data-info__card-bird']);
   const dataInfoCardBird = renderCardBirdInformation(birdInfo);
+  dataInfoCardBird.classList.add(styles['hiden']);
+
+  console.log(dataInfoCardBird);
 
   // // изображение птицы
   // const cardBirdImg = elementsCreate('img', styles['bird-img']);
