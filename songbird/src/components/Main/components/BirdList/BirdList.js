@@ -2,11 +2,12 @@ import { store } from 'src';
 import { randArray } from 'src/utils/random-array';
 import { BIRDS_DATA } from '../../../../const/birds';
 import { elementsCreate } from '../../../../utils/create-elements';
-
+import { renderBirdRandom } from '../BirdRandom';
 import styles from './BirdList.module.scss';
 import { renderCardBird } from './components/BirdListChoosen';
 
 export const renderBirdList = (number) => {
+  const bird = BIRDS_DATA[number];
   let isFirstWin = true;
   let balls = store.balls;
   const birdList = elementsCreate('section', 'bird-list');
@@ -15,22 +16,34 @@ export const renderBirdList = (number) => {
   const birdListNames = elementsCreate('ul', styles['bird-list__name']);
   let cardBird = renderCardBird(store.birdHidden);
 
-  const bird = BIRDS_DATA[number];
+  const buttonNextLevel = elementsCreate('button', styles['button-next-level']);
+  buttonNextLevel.innerHTML = 'Next Level';
+  buttonNextLevel.disabled = true;
+
+  buttonNextLevel.onclick = (event) => {
+    ++store.stage;
+    store.isWin = false;
+    isFirstWin = true; // обновляем значения для следующего раунда
+    const { birdRandom } = renderBirdRandom();
+    const birdListNew = renderBirdList(store.stage);
+    const main = document.getElementById('main');
+    main.innerHTML = '';
+    main.append(birdRandom, birdListNew);
+    // TODO - здесь необходимо перерендерить блоки: bird-random/bird-list и загрузить новый main
+  };
+
   for (let i = 0; i < bird.length; i++) {
     const nameItem = elementsCreate('li', styles['bird-list__item']);
     nameItem.innerHTML = `<span class="name-item_chekpoint"></span>
     ${bird[i].name}`;
 
     nameItem.onclick = (event) => {
-      // навешивам цвет и звук для вариантов ответа
       if (bird[i].name === store.birdHidden.name) {
-        store.isWin = true;
+        store.isWin = true; // навешивам цвет и звук для вариантов ответа
         nameItem.classList.add(styles['success']);
 
-        // обновление глобаного занчения score
-        // TODO - испавить постоянное обновление данные при нажатии верного ответа!
         if (isFirstWin) {
-          store.score += balls;
+          store.score += balls; // обновление глобаного занчения score
         }
 
         const score = document.getElementById('score');
@@ -51,7 +64,8 @@ export const renderBirdList = (number) => {
           console.log('BAAALS', balls);
           break;
         case true:
-          isFirstWin = false;
+          isFirstWin = false; //проверяем первый ли это клик на верный ответ
+          buttonNextLevel.disabled = false; //делаем кнопку активной
           break;
       }
       // рендерим блок с птицами в зависимости от выбранного варианта
@@ -64,10 +78,6 @@ export const renderBirdList = (number) => {
   }
 
   birdContainer.append(birdListNames);
-
-  const buttonNextLevel = elementsCreate('button', styles['button-next-level']);
-  buttonNextLevel.innerHTML = 'Next Level';
-  buttonNextLevel.disabled = true;
 
   birdList.append(birdContainer, cardBird, buttonNextLevel);
 

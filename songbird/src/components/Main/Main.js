@@ -5,6 +5,7 @@ import { renderBirdList, renderBirdRandom } from './components';
 
 export const renderMain = () => {
   const main = document.createElement('main');
+  main.setAttribute('id', 'main');
   // console.log(store.stage, 'store.stage');
   const { birdRandom } = renderBirdRandom();
   const birdList = renderBirdList(store.stage);

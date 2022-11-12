@@ -15,24 +15,16 @@ export const renderCardBird = (object, tag) => {
   const instruction = elementsCreate('p', styles['details_instruction']);
   instruction.innerHTML = `
   <span>Послушайте плеер.</span>
-
   <span>Выберите птицу из списка</span>`;
 
-  console.log(store, '-------------------------------------store');
-
-  // const dataInfoCardBird = elementsCreate('div', styles['data-info__card-bird']);
   const dataInfoCardBird = renderCardBirdInformation(object);
 
   if (tag === 'bird') {
-    console.log('ЗАШЛО!');
-    // dataInfoCardBird.classList.remove(styles['hiden']);
     instruction.classList.add(styles['hiden']);
     dataInfoCardBird.classList.remove('hiden');
   } else {
     dataInfoCardBird.classList.add(styles['hiden']);
   }
-
-  console.log(dataInfoCardBird);
 
   dataInfoDetails.append(instruction, dataInfoCardBird);
 
