@@ -4,7 +4,7 @@ import { BIRDS_DATA } from '../../../../const/birds';
 import { elementsCreate } from '../../../../utils/create-elements';
 
 import styles from './BirdList.module.scss';
-import { renderCardBird } from './components';
+import { renderCardBird } from './components/BirdListChoosen';
 
 export const renderBirdList = (number) => {
   const birdList = elementsCreate('section', 'bird-list');
