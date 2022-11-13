@@ -1,4 +1,5 @@
 import { store } from 'src';
+import { changeStage } from 'src/utils/chande-stage-menu';
 import { randArray } from 'src/utils/random-array';
 import { BIRDS_DATA } from '../../../../const/birds';
 import { elementsCreate } from '../../../../utils/create-elements';
@@ -24,12 +25,16 @@ export const renderBirdList = (number) => {
     ++store.stage;
     store.isWin = false;
     isFirstWin = true; // обновляем значения для следующего раунда
+    // генерим новый main
     const { birdRandom } = renderBirdRandom();
     const birdListNew = renderBirdList(store.stage);
     const main = document.getElementById('main');
     main.innerHTML = '';
     main.append(birdRandom, birdListNew);
-    // TODO - здесь необходимо перерендерить блоки: bird-random/bird-list и загрузить новый main
+
+    const menu = [...document.querySelectorAll('.bird-menu__item')];
+    console.log(menu);
+    changeStage(store.stage, menu);
   };
 
   for (let i = 0; i < bird.length; i++) {

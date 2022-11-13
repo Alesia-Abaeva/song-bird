@@ -1,3 +1,4 @@
+import { store } from 'src';
 import { BIRD_SPECIES } from '../../../../const/birds-species';
 import styles from './BirdMenu.module.scss';
 
@@ -14,7 +15,7 @@ export const renderBirdMenu = () => {
     const birdMenuItem = document.createElement('li');
     birdMenuItem.classList.add(styles['bird-menu__item']);
 
-    if (i === 0) {
+    if (i === store.stage) {
       birdMenuItem.classList.add(styles['active']);
     }
 
