@@ -1,6 +1,5 @@
 import { store } from 'src';
 import { changeStage } from 'src/utils/chande-stage-menu';
-import { randArray } from 'src/utils/random-array';
 import { BIRDS_DATA } from '../../../../const/birds';
 import { elementsCreate } from '../../../../utils/create-elements';
 import { renderBirdRandom } from '../BirdRandom';
@@ -25,15 +24,16 @@ export const renderBirdList = (number) => {
     ++store.stage;
     store.isWin = false;
     isFirstWin = true; // обновляем значения для следующего раунда
-    // генерим новый main
+
+    // обновляем main
     const { birdRandom } = renderBirdRandom();
     const birdListNew = renderBirdList(store.stage);
     const main = document.getElementById('main');
     main.innerHTML = '';
     main.append(birdRandom, birdListNew);
 
+    // обновляем header
     const menu = [...document.querySelectorAll('.bird-menu__item')];
-    console.log(menu);
     changeStage(store.stage, menu);
   };
 
@@ -48,7 +48,7 @@ export const renderBirdList = (number) => {
         nameItem.classList.add(styles['success']);
 
         if (isFirstWin) {
-          store.score += balls; // обновление глобаного занчения score
+          store.score += balls; // обновление глобального значения score
         }
 
         const score = document.getElementById('score');

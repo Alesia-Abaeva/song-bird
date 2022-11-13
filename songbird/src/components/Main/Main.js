@@ -1,7 +1,7 @@
 // import { renderBirdMenu, renderTopPanel } from './components';
 
 import { store } from 'src';
-import { renderBirdList, renderBirdRandom } from './components';
+import { renderBirdList, renderBirdRandom, renderGameOverBlock } from './components';
 
 export const renderMain = () => {
   const main = document.createElement('main');
@@ -9,6 +9,7 @@ export const renderMain = () => {
   // console.log(store.stage, 'store.stage');
   const { birdRandom } = renderBirdRandom();
   const birdList = renderBirdList(store.stage);
+  // const game = renderGameOverBlock();
 
   // const birdMenu = renderBirdMenu();
 
