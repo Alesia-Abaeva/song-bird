@@ -32,10 +32,13 @@ export const renderBirdList = (number) => {
     main.innerHTML = '';
     console.log(store);
 
+    const menu = [...document.querySelectorAll('.bird-menu__item')];
+
     if (store.over) {
       // обновляем main
       const gameOver = renderGameOverBlock(store.score);
       main.append(gameOver);
+      removeClass(menu);
     } else {
       // обновляем main
       const { birdRandom } = renderBirdRandom();
@@ -43,8 +46,8 @@ export const renderBirdList = (number) => {
       main.append(birdRandom, birdListNew);
 
       // обновляем header
-      const menu = [...document.querySelectorAll('.bird-menu__item')];
-      removeClass(menu);
+
+      changeStage(store.stage, menu);
     }
   };
 
@@ -64,9 +67,8 @@ export const renderBirdList = (number) => {
           // TODO - значения уходят в минус!
         }
         if (store.stage == 5) {
-          console.log('sdkfsdkjfhsdjkfh');
-          console.log(store);
           store.over = true;
+          // флаг для определения конца игры
         }
 
         const score = document.getElementById('score');
@@ -85,12 +87,10 @@ export const renderBirdList = (number) => {
           soundErr.play();
           nameItem.classList.add(styles['error']);
           --balls;
-          console.log('BAAALS', balls);
           break;
         case true:
           isFirstWin = false; //проверяем первый ли это клик на верный ответ
           buttonNextLevel.disabled = false; //делаем кнопку активной
-
           break;
       }
       // рендерим блок с птицами в зависимости от выбранного варианта

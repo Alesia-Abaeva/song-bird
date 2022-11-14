@@ -17,6 +17,10 @@ export const renderGameOverBlock = (balls) => {
   overResults.innerHTML = result;
   overButton.innerHTML = button;
 
+  overButton.onclick = () => {
+    console.log('я родился!');
+  };
+
   container.append(overTitle, overResults, overButton);
   return container;
 };
