@@ -6,3 +6,9 @@ export const changeStage = (number, array) => {
     }
   }
 };
+
+export const removeClass = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    array[i].classList.remove('active');
+  }
+};

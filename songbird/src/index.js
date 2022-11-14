@@ -12,6 +12,7 @@ export const store = {
   balls: 5,
   allBalls: 30,
   isWin: false,
+  over: false,
 };
 
 const init = () => {

@@ -1,5 +1,5 @@
 import { store } from 'src';
-import { changeStage } from 'src/utils/chande-stage-menu';
+import { changeStage, removeClass } from 'src/utils/chande-stage-menu';
 import { BIRDS_DATA } from '../../../../const/birds';
 import { elementsCreate } from '../../../../utils/create-elements';
 import { renderBirdRandom } from '../BirdRandom';
@@ -7,9 +7,7 @@ import styles from './BirdList.module.scss';
 import { renderCardBird } from './components/BirdListChoosen';
 import { soundErr, soundSucs } from 'src/const/sounds';
 import { generateResultsBlock } from 'src/utils/game-over';
-
-// soundSucs
-// soundErr
+import { renderGameOverBlock } from '../GameOver';
 
 export const renderBirdList = (number) => {
   const bird = BIRDS_DATA[number];
@@ -30,16 +28,24 @@ export const renderBirdList = (number) => {
     store.isWin = false;
     isFirstWin = true; // обновляем значения для следующего раунда
 
-    // обновляем main
-    const { birdRandom } = renderBirdRandom();
-    const birdListNew = renderBirdList(store.stage);
     const main = document.getElementById('main');
     main.innerHTML = '';
-    main.append(birdRandom, birdListNew);
+    console.log(store);
 
-    // обновляем header
-    const menu = [...document.querySelectorAll('.bird-menu__item')];
-    changeStage(store.stage, menu);
+    if (store.over) {
+      // обновляем main
+      const gameOver = renderGameOverBlock(store.score);
+      main.append(gameOver);
+    } else {
+      // обновляем main
+      const { birdRandom } = renderBirdRandom();
+      const birdListNew = renderBirdList(store.stage);
+      main.append(birdRandom, birdListNew);
+
+      // обновляем header
+      const menu = [...document.querySelectorAll('.bird-menu__item')];
+      removeClass(menu);
+    }
   };
 
   for (let i = 0; i < bird.length; i++) {
@@ -57,7 +63,11 @@ export const renderBirdList = (number) => {
           store.score += balls; // обновление глобального значения score
           // TODO - значения уходят в минус!
         }
-        console.log(generateResultsBlock(5));
+        if (store.stage == 5) {
+          console.log('sdkfsdkjfhsdjkfh');
+          console.log(store);
+          store.over = true;
+        }
 
         const score = document.getElementById('score');
         score.innerHTML = `Score: ${store.score}`;
@@ -80,6 +90,7 @@ export const renderBirdList = (number) => {
         case true:
           isFirstWin = false; //проверяем первый ли это клик на верный ответ
           buttonNextLevel.disabled = false; //делаем кнопку активной
+
           break;
       }
       // рендерим блок с птицами в зависимости от выбранного варианта
