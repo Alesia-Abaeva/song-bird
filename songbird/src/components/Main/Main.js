@@ -9,11 +9,15 @@ export const renderMain = () => {
   // console.log(store.stage, 'store.stage');
   const { birdRandom } = renderBirdRandom();
   const birdList = renderBirdList(store.stage);
-  // const game = renderGameOverBlock();
+  const game = renderGameOverBlock();
 
   // const birdMenu = renderBirdMenu();
 
-  main.append(birdRandom, birdList);
+  main.append(birdRandom, birdList, game);
 
   return main;
 };
+
+// добавить звук при выборе правильного.неправильного ответа
+// победное ведомление в конце
+// добавить футер

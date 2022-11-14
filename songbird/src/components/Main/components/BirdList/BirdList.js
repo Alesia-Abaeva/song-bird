@@ -5,6 +5,10 @@ import { elementsCreate } from '../../../../utils/create-elements';
 import { renderBirdRandom } from '../BirdRandom';
 import styles from './BirdList.module.scss';
 import { renderCardBird } from './components/BirdListChoosen';
+import { soundErr, soundSucs } from 'src/const/sounds';
+
+// soundSucs
+// soundErr
 
 export const renderBirdList = (number) => {
   const bird = BIRDS_DATA[number];
@@ -46,6 +50,7 @@ export const renderBirdList = (number) => {
       if (bird[i].name === store.birdHidden.name) {
         store.isWin = true; // навешивам цвет и звук для вариантов ответа
         nameItem.classList.add(styles['success']);
+        soundSucs.play();
 
         if (isFirstWin) {
           store.score += balls; // обновление глобального значения score
@@ -64,6 +69,7 @@ export const renderBirdList = (number) => {
 
       switch (store.isWin) {
         case false:
+          soundErr.play();
           nameItem.classList.add(styles['error']);
           --balls;
           console.log('BAAALS', balls);
