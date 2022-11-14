@@ -16,7 +16,7 @@ export const renderFooter = () => {
   years.innerHTML = '2022';
 
   const rsSchoolLink = elementsCreate('a', 'footer__logo-rsSchool');
-  rsSchoolLink.setAttribute('href', 'https://github.com/Alesia-Abaeva');
+  rsSchoolLink.setAttribute('href', 'https://rs.school/js/');
   rsSchoolLink.setAttribute('target', '_blank');
   rsSchoolLink.setAttribute('title', 'logo rs-school');
 
