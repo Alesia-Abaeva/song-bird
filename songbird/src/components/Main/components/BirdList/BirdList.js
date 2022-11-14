@@ -6,6 +6,7 @@ import { renderBirdRandom } from '../BirdRandom';
 import styles from './BirdList.module.scss';
 import { renderCardBird } from './components/BirdListChoosen';
 import { soundErr, soundSucs } from 'src/const/sounds';
+import { generateResultsBlock } from 'src/utils/game-over';
 
 // soundSucs
 // soundErr
@@ -54,7 +55,9 @@ export const renderBirdList = (number) => {
 
         if (isFirstWin) {
           store.score += balls; // обновление глобального значения score
+          // TODO - значения уходят в минус!
         }
+        console.log(generateResultsBlock(5));
 
         const score = document.getElementById('score');
         score.innerHTML = `Score: ${store.score}`;

@@ -10,6 +10,7 @@ export const store = {
   score: 0,
   audio: null,
   balls: 5,
+  allBalls: 30,
   isWin: false,
 };
 
