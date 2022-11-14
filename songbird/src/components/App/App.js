@@ -1,3 +1,4 @@
+import { renderFooter } from '../Footer';
 import { renderHeader } from '../Header';
 import { renderMain } from '../Main/Main';
 import styles from './App.module.scss';
@@ -13,6 +14,7 @@ export const renderApp = () => {
 
   const { header, topPanel } = renderHeader();
   const main = renderMain();
+  const footer = renderFooter();
 
   // const button = document.createElement('button');
   // button.innerText = 'добавить';
@@ -27,6 +29,7 @@ export const renderApp = () => {
   appContiner.append(
     header,
     main,
+    footer,
     // button,
   );
 };

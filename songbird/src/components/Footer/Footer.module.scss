@@ -1,0 +1,27 @@
+@import '/src/theme/variables';
+
+.footer {
+  margin: 25px 0px;
+}
+
+.footer__container {
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__logo_git {
+  background-image: url('/assets/icons/Logo/GitHub-Wordmark-White-Logo.wine.svg');
+  @include width-heigth(70px, 70px);
+  @extend %icons;
+}
+.footer__logo-rsSchool {
+  background-image: url('/assets/icons/Logo/rs_school-og.png');
+  @include width-heigth(80px, 70px);
+  @extend %icons;
+}
+
+.footer__app-year {
+  font-size: 1.2rem;
+}
