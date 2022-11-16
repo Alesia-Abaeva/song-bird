@@ -1,11 +1,21 @@
 @import '/src/theme/variables';
 
 .bird-list__data-info {
-  display: flex;
-  position: relative;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  @media (min-width: $desktop) {
+    // -webkit-box-flex: 0;
+    // -ms-flex: 0 0 50%;
+    // flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  // display: flex;
+  // position: relative;
+  // width: 100%;
+  // padding-right: 15px;
+  // padding-left: 15px;
 }
 
 .data-info__details {
@@ -25,6 +35,11 @@
   // border: 1px solid rgba(0,0,0,0.125);
   border-radius: 0.25rem;
   box-sizing: border-box;
+
+  @media (min-width: $desktop) {
+    height: 100%;
+    margin-top: 0;
+  }
 }
 
 .details_instruction {

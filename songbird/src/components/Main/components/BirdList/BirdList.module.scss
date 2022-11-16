@@ -12,12 +12,37 @@
   margin-left: -15px;
 }
 
-.bird-list__container {
+.bird-list__wrapper {
   position: relative;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: $desktop) {
+    flex-direction: row;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+
+.bird-list__container {
+  @media (min-width: $desktop) {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  // position: relative;
+  // width: 100%;
+  // padding-right: 15px;
+  // padding-left: 15px;
+  // display: flex;
 }
 
 .bird-list__name {

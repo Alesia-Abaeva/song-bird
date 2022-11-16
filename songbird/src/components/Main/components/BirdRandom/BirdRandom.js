@@ -1,5 +1,6 @@
 import { store } from 'src';
 import { BIRDS_DATA } from 'src/const/birds';
+import { elementsCreate } from 'src/utils/create-elements';
 import { randArray } from 'src/utils/random-array';
 import { COVER_CARDS } from '../../../../const/bird-hide-card';
 import styles from './BirdRandom.module.scss';
@@ -22,11 +23,15 @@ export const renderBirdRandom = (nameBird = '******', image = COVER_CARDS) => {
   // обновление данныех в глобальном объекте
   store.birdHidden = randArray(BIRDS_DATA[store.stage]);
 
+  const inf = elementsCreate('div', 'bird-random__container-info');
+
   // INFORMATION
   const name = renderBirdInformations(nameBird);
   const audio = renderHideAudio(store.birdHidden);
+  inf.append(name, audio);
 
-  birdRandom.append(img, name, audio);
+  // birdRandom.append(img, name, audio);
+  birdRandom.append(img, inf);
 
   return { birdRandom, img };
 };

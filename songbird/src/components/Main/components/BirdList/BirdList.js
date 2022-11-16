@@ -15,6 +15,8 @@ export const renderBirdList = (number) => {
   let balls = store.balls;
   const birdList = elementsCreate('section', 'bird-list');
 
+  const birdListWrapper = elementsCreate('div', 'bird-list__wrapper');
+
   const birdContainer = elementsCreate('div', styles['bird-list__container']);
   const birdListNames = elementsCreate('ul', styles['bird-list__name']);
   let cardBird = renderCardBird(store.birdHidden);
@@ -96,7 +98,9 @@ export const renderBirdList = (number) => {
       // рендерим блок с птицами в зависимости от выбранного варианта
       cardBird = renderCardBird(bird[i], 'bird');
       birdList.innerHTML = '';
-      birdList.append(birdContainer, cardBird, buttonNextLevel);
+      birdListWrapper.innerHTML = '';
+      birdListWrapper.append(birdContainer, cardBird);
+      birdList.append(birdListWrapper, buttonNextLevel);
     };
 
     birdListNames.append(nameItem);
@@ -104,7 +108,8 @@ export const renderBirdList = (number) => {
 
   birdContainer.append(birdListNames);
 
-  birdList.append(birdContainer, cardBird, buttonNextLevel);
+  birdListWrapper.append(birdContainer, cardBird);
+  birdList.append(birdListWrapper, buttonNextLevel);
 
   return birdList;
 };

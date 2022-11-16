@@ -9,11 +9,27 @@
   justify-content: center;
   border-radius: 0.25rem;
   background-color: $section-background-color;
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 }
 
 .bird-random__img {
   @extend %bird-img;
+
+  @media (min-width: $tablet) {
+    vertical-align: middle;
+    margin: 0;
+  }
   // @include width-heigth(200px, 155px);
   // border-radius: 10px;
   // margin: 0 auto 25px;
+}
+
+.bird-random__container-info {
+  @media (min-width: $tablet) {
+    margin-left: 40px;
+    width: 90%;
+  }
 }
