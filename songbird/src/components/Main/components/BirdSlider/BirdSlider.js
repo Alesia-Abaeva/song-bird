@@ -112,3 +112,5 @@ export const renderSlider = () => {
 
   return slider;
 };
+
+// TODO - сделать для 550px - меньший размер
