@@ -19,12 +19,15 @@
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
+
   @media (min-width: $desktop) {
     max-width: 720px;
   }
+
   @media (min-width: 992px) {
     max-width: 960px;
   }
+
   @media (min-width: 1200px) {
     max-width: 1140px;
   }

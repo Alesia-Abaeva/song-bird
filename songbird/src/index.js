@@ -2,6 +2,8 @@ import './style.scss';
 import { renderApp } from './components';
 import { BIRDS_DATA } from './const/birds';
 import { randArray } from './utils/random-array';
+import { shuffleArray } from './utils/shuffleArray';
+import { slidesPlugin } from './utils/slider-plugin';
 
 export const store = {
   stage: 0,
@@ -13,10 +15,14 @@ export const store = {
   allBalls: 30,
   isWin: false,
   over: false,
+  birdsArray: shuffleArray(BIRDS_DATA),
 };
 
 const init = () => {
   renderApp();
+  // slidesPlugin(4);
+
+  console.log(store);
 };
 
 init();

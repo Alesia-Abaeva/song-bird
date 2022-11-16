@@ -8,6 +8,7 @@ import { renderCardBird } from './components/BirdListChoosen';
 import { soundErr, soundSucs } from 'src/const/sounds';
 import { generateResultsBlock } from 'src/utils/game-over';
 import { renderGameOverBlock } from '../GameOver';
+import { renderSlider } from '../BirdSlider';
 
 export const renderBirdList = (number) => {
   const bird = BIRDS_DATA[number];
@@ -45,7 +46,8 @@ export const renderBirdList = (number) => {
       // обновляем main
       const { birdRandom } = renderBirdRandom();
       const birdListNew = renderBirdList(store.stage);
-      main.append(birdRandom, birdListNew);
+      const slider = renderSlider();
+      main.append(birdRandom, birdListNew, slider);
 
       // обновляем header
 
