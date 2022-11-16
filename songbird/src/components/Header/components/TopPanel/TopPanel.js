@@ -1,5 +1,6 @@
 // import { store } from '../../../App';
 import { store } from 'src';
+import { elementsCreate } from 'src/utils/create-elements';
 import styles from './TopPanel.module.scss';
 
 export const renderTopPanel = () => {
@@ -9,6 +10,20 @@ export const renderTopPanel = () => {
   // LOGO
   const logo = document.createElement('div');
   logo.classList.add(styles['top-panel_logo']);
+
+  // BUTTON
+  const buttonContainer = elementsCreate('div', 'top-panel_button-container');
+
+  const buttonEn = elementsCreate('button', 'top-panel_button');
+  buttonEn.setAttribute('id', 'en');
+  buttonEn.innerHTML = 'EN';
+
+  const buttonRu = elementsCreate('button', 'top-panel_button');
+  buttonRu.setAttribute('id', 'ru');
+  buttonRu.innerHTML = 'RU';
+  buttonRu.classList.add('active-button-lang');
+
+  buttonContainer.append(buttonRu, buttonEn);
 
   // SCORE
   const score = document.createElement('div');
@@ -20,7 +35,7 @@ export const renderTopPanel = () => {
   scoreH5.innerHTML = `Score: ${store.score}`;
   score.append(scoreH5);
 
-  topPanel.append(logo, score);
+  topPanel.append(logo, buttonContainer, score);
 
   return topPanel;
 };

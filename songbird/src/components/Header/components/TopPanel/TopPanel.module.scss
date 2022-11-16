@@ -7,6 +7,32 @@
   justify-content: space-between;
 }
 
+.top-panel_button-container {
+  display: flex;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.top-panel_button {
+  border-radius: 0.25rem;
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  background-color: $section-background-color;
+  border: 1px solid $border-name-birds;
+}
+
+.active-button-lang {
+  background-color: $button-color-active;
+}
+
 .top-panel_logo {
   background-image: url($logo);
   width: 200px;
