@@ -6,24 +6,26 @@ import { renderBirdRandom } from '../BirdRandom';
 import styles from './BirdList.module.scss';
 import { renderCardBird } from './components/BirdListChoosen';
 import { soundErr, soundSucs } from 'src/const/sounds';
-import { generateResultsBlock } from 'src/utils/game-over';
 import { renderGameOverBlock } from '../GameOver';
 import { renderSlider } from '../BirdSlider';
 import { translation } from 'src/const/translation';
 
 export const renderBirdList = (number) => {
-  // const bird = BIRDS_DATA[number];
-  const bird = BIRDS_DATA[store.language][number];
+  const bird = BIRDS_DATA[store.language][number]; //работает с определенным элементов bird
   let isFirstWin = true;
   let balls = store.balls;
+
   const birdList = elementsCreate('section', 'bird-list');
 
   const birdListWrapper = elementsCreate('div', 'bird-list__wrapper');
 
   const birdContainer = elementsCreate('div', styles['bird-list__container']);
+
   const birdListNames = elementsCreate('ul', styles['bird-list__name']);
+
   let cardBird = renderCardBird(store.birdHidden);
 
+  // button
   const buttonNextLevel = elementsCreate('button', styles['button-next-level']);
   buttonNextLevel.innerHTML = `${translation[store.language].button}`;
   buttonNextLevel.disabled = true;
@@ -35,15 +37,14 @@ export const renderBirdList = (number) => {
 
     const main = document.getElementById('main');
     main.innerHTML = '';
-    console.log(store);
 
     const menu = [...document.querySelectorAll('.bird-menu__item')];
 
     if (store.over) {
-      // обновляем main
       const gameOver = renderGameOverBlock(store.score);
+      // обновляем main
       main.append(gameOver);
-      removeClass(menu);
+      removeClass(menu); //удаляем у меню активный класс стадии
     } else {
       // обновляем main
       const { birdRandom } = renderBirdRandom();
@@ -51,32 +52,36 @@ export const renderBirdList = (number) => {
       const slider = renderSlider();
       main.append(birdRandom, birdListNew, slider);
 
-      // обновляем header
-
-      changeStage(store.stage, menu);
+      changeStage(store.stage, menu); // обновляем header
     }
   };
 
+  // Блок вариантов ответа
   for (let i = 0; i < bird.length; i++) {
     const nameItem = elementsCreate('li', styles['bird-list__item']);
+
     nameItem.innerHTML = `<span class="name-item_chekpoint"></span>
     ${bird[i].name}`;
 
     nameItem.onclick = (event) => {
+      let pressBird;
       if (bird[i].name === store.birdHidden.name) {
         store.isWin = true; // навешивам цвет и звук для вариантов ответа
         nameItem.classList.add(styles['success']);
         soundSucs.play();
 
         if (isFirstWin) {
+          //выбран верный ответ с первого раза
           store.score += balls; // обновление глобального значения score
           // TODO - значения уходят в минус!
         }
+
         if (store.stage == 5) {
           store.over = true;
           // флаг для определения конца игры
         }
 
+        // обновляем блок score
         const score = document.getElementById('score');
         score.innerHTML = `Score: ${store.score}`;
 
@@ -84,6 +89,7 @@ export const renderBirdList = (number) => {
         const img = document.querySelector('.bird-random__img');
         img.setAttribute('src', bird[i].image);
 
+        // показываем скрытое имя в блоке
         const birdName = document.querySelector('.infornation__hide-name');
         birdName.innerHTML = bird[i].name;
       }
@@ -91,14 +97,15 @@ export const renderBirdList = (number) => {
       switch (store.isWin) {
         case false:
           soundErr.play();
+          nameItem.matches('.error') || --balls; // проверяю на наличие класса, если он есть - не отнимать
           nameItem.classList.add(styles['error']);
-          --balls;
           break;
         case true:
           isFirstWin = false; //проверяем первый ли это клик на верный ответ
           buttonNextLevel.disabled = false; //делаем кнопку активной
           break;
       }
+
       // рендерим блок с птицами в зависимости от выбранного варианта
       cardBird = renderCardBird(bird[i], 'bird');
       birdList.innerHTML = '';

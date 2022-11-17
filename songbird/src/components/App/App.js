@@ -16,16 +16,6 @@ export const renderApp = () => {
   const main = renderMain();
   const footer = renderFooter();
 
-  // const button = document.createElement('button');
-  // button.innerText = 'добавить';
-
-  // button.onclick = () => {
-  //   store.score = store.score + 1;
-  //   const newHeader = renderHeader();
-  //   appContiner.innerHTML = '';
-  //   appContiner.append(newHeader, button);
-  // };
-
   appContiner.append(
     header,
     main,

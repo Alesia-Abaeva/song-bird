@@ -1,4 +1,5 @@
 import { store } from 'src';
+import { updateApp } from 'src/components/App';
 import { elementsCreate } from 'src/utils/create-elements';
 import { generateResultsBlock } from 'src/utils/game-over';
 import styles from './GameOver.module.scss';
@@ -19,6 +20,8 @@ export const renderGameOverBlock = (balls) => {
 
   overButton.onclick = () => {
     console.log('я родился!');
+    location.reload(); //перезагружаем страницу
+    // updateApp();
   };
 
   container.append(overTitle, overResults, overButton);

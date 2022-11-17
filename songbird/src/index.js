@@ -1,9 +1,7 @@
 import './style.scss';
 import { renderApp } from './components';
 import { BIRDS_DATA } from './const/birds';
-import { randArray } from './utils/random-array';
 import { shuffleArray } from './utils/shuffleArray';
-import { slidesPlugin } from './utils/slider-plugin';
 import { getLocalStorage } from './utils/local-storage';
 import { LOCAL_STORAGE_KEYS } from './const/local-storage';
 import { LANGUAGES } from './const/translation';
@@ -31,8 +29,6 @@ export const store = {
 
 const init = () => {
   renderApp();
-  // slidesPlugin(4);
-
   console.log(store);
 };
 

@@ -1,4 +1,3 @@
-// import { store } from '../../../App';
 import { store } from 'src';
 import { LANGUAGES, translation } from 'src/const/translation';
 import { elementsCreate } from 'src/utils/create-elements';
@@ -47,8 +46,6 @@ export const renderTopPanel = () => {
 
   const scoreH5 = document.createElement('h5');
   scoreH5.setAttribute('id', 'score');
-
-  // scoreH5.innerHTML = `Score: ${store.score}`;
   scoreH5.innerHTML = `${translation[store.language].score}: ${store.score}`;
   score.append(scoreH5);
 

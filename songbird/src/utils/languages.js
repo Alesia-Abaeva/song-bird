@@ -16,12 +16,4 @@ export const changeAppLanguage = (language) => {
   );
 
   updateApp();
-
-  //   // находим в объекте выбранный язык, делаем entries, перебираем массив ключей (id dom nodes) и значений
-  //   Object.entries(translation[language]).forEach(([key, value]) => {
-  //     // находим ноду
-  //     const node = document.getElementById(key);
-  //     // меняем текст
-  //     node.innerText = value;
-  //   });
 };

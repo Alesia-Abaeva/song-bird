@@ -7,8 +7,6 @@ import { renderCardBirdInformation } from './components';
 translation;
 
 export const renderCardBird = (object, tag) => {
-  // const birdInfo = object.birdHidden;
-
   const dataInfoContainer = elementsCreate('div', styles['bird-list__data-info']);
   const dataInfoDetails = elementsCreate('div', styles['data-info__details']);
 

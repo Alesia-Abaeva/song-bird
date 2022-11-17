@@ -18,7 +18,7 @@ export const generateResultsBlock = (results) => {
   if (store.language === LANGUAGES.RU) {
     switch (state) {
       case 'win':
-        variants.title = 'Поздравляем';
+        variants.title = 'Поздравляем!';
         variants.result = 'Вы набрали максимально возмножное колличество баллов 30 из 30!';
         variants.button = 'Докажи, что это было не везение';
         break;
@@ -36,12 +36,12 @@ export const generateResultsBlock = (results) => {
   } else {
     switch (state) {
       case 'win':
-        variants.title = 'Congratulations';
+        variants.title = 'Congratulations!';
         variants.result = 'You have scored the maximum possible score of 30 out of 30!';
         variants.button = 'Prove it was bad luck';
         break;
       case 'default':
-        variants.title = 'Congratulations';
+        variants.title = 'Congratulations!';
         variants.result = `You scored ${results} out of 30!`;
         variants.button = 'Try again';
         break;

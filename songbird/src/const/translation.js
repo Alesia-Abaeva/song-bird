@@ -4,7 +4,6 @@ export const LANGUAGES = {
 };
 
 export const translation = {
-  // ключи - id dom nodes, значение - их содержимое
   [LANGUAGES.EN]: {
     score: 'Score',
     button: 'Next Level',

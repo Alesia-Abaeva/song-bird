@@ -5,8 +5,6 @@ import { leftArrow, rigthArrow } from 'src/utils/slider-arror';
 import { renderHideAudio } from '../BirdRandom/components/InformationAudio';
 import styles from './BirdSlider.module.scss';
 
-// import { renderBirdList, renderBirdRandom, renderGameOverBlock } from './components';
-
 export const renderSlider = () => {
   const birdsArray = store.birdsArray;
   const matrixBirds = TwoDimensional(birdsArray, 6);
@@ -108,8 +106,5 @@ export const renderSlider = () => {
       addScrollContainer(count);
     }
   }
-
   return slider;
 };
-
-// TODO - сделать для 550px - меньший размер
