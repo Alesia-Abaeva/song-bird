@@ -9,9 +9,11 @@ import { soundErr, soundSucs } from 'src/const/sounds';
 import { generateResultsBlock } from 'src/utils/game-over';
 import { renderGameOverBlock } from '../GameOver';
 import { renderSlider } from '../BirdSlider';
+import { translation } from 'src/const/translation';
 
 export const renderBirdList = (number) => {
-  const bird = BIRDS_DATA[number];
+  // const bird = BIRDS_DATA[number];
+  const bird = BIRDS_DATA[store.language][number];
   let isFirstWin = true;
   let balls = store.balls;
   const birdList = elementsCreate('section', 'bird-list');
@@ -23,7 +25,7 @@ export const renderBirdList = (number) => {
   let cardBird = renderCardBird(store.birdHidden);
 
   const buttonNextLevel = elementsCreate('button', styles['button-next-level']);
-  buttonNextLevel.innerHTML = 'Next Level';
+  buttonNextLevel.innerHTML = `${translation[store.language].button}`;
   buttonNextLevel.disabled = true;
 
   buttonNextLevel.onclick = (event) => {

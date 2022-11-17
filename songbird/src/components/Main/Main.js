@@ -1,7 +1,6 @@
 // import { renderBirdMenu, renderTopPanel } from './components';
 
 import { store } from 'src';
-import { BIRDS_DATA } from 'src/const/birds';
 import { renderBirdList, renderBirdRandom, renderGameOverBlock, renderSlider } from './components';
 
 export const renderMain = () => {

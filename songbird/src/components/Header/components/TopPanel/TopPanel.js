@@ -1,6 +1,8 @@
 // import { store } from '../../../App';
 import { store } from 'src';
+import { LANGUAGES, translation } from 'src/const/translation';
 import { elementsCreate } from 'src/utils/create-elements';
+import { changeAppLanguage } from 'src/utils/languages';
 import styles from './TopPanel.module.scss';
 
 export const renderTopPanel = () => {
@@ -14,14 +16,28 @@ export const renderTopPanel = () => {
   // BUTTON
   const buttonContainer = elementsCreate('div', 'top-panel_button-container');
 
+  const handleChangeLanguage = (event) => {
+    const nextLanguage = event.target.textContent;
+
+    if (nextLanguage === store.language) {
+      return null;
+    }
+
+    changeAppLanguage(nextLanguage);
+  };
+
   const buttonEn = elementsCreate('button', 'top-panel_button');
-  buttonEn.setAttribute('id', 'en');
-  buttonEn.innerHTML = 'EN';
+  buttonEn.setAttribute('id', LANGUAGES.EN);
+  buttonEn.innerHTML = LANGUAGES.EN;
+  // если язык не английский, то не выполнять выражение справа
+  store.language === LANGUAGES.EN && buttonEn.classList.add('active-button-lang');
+  buttonEn.onclick = handleChangeLanguage;
 
   const buttonRu = elementsCreate('button', 'top-panel_button');
-  buttonRu.setAttribute('id', 'ru');
-  buttonRu.innerHTML = 'RU';
-  buttonRu.classList.add('active-button-lang');
+  buttonRu.setAttribute('id', LANGUAGES.RU);
+  buttonRu.innerHTML = LANGUAGES.RU;
+  store.language === LANGUAGES.RU && buttonRu.classList.add('active-button-lang');
+  buttonRu.onclick = handleChangeLanguage;
 
   buttonContainer.append(buttonRu, buttonEn);
 
@@ -32,7 +48,8 @@ export const renderTopPanel = () => {
   const scoreH5 = document.createElement('h5');
   scoreH5.setAttribute('id', 'score');
 
-  scoreH5.innerHTML = `Score: ${store.score}`;
+  // scoreH5.innerHTML = `Score: ${store.score}`;
+  scoreH5.innerHTML = `${translation[store.language].score}: ${store.score}`;
   score.append(scoreH5);
 
   topPanel.append(logo, buttonContainer, score);

@@ -1,10 +1,10 @@
+import { store } from 'src';
+import { translation } from 'src/const/translation';
 import { elementsCreate } from 'src/utils/create-elements';
 import styles from './BirdListChoosen.module.scss';
-import { store } from 'src';
-import { renderHideAudio } from '../../../BirdRandom/components/InformationAudio';
 import { renderCardBirdInformation } from './components';
 
-// renderHideAudio
+translation;
 
 export const renderCardBird = (object, tag) => {
   // const birdInfo = object.birdHidden;
@@ -14,8 +14,8 @@ export const renderCardBird = (object, tag) => {
 
   const instruction = elementsCreate('p', styles['details_instruction']);
   instruction.innerHTML = `
-  <span>Послушайте плеер.</span>
-  <span>Выберите птицу из списка</span>`;
+  <span>${translation[store.language].hellBox.first}</span>
+  <span>${translation[store.language].hellBox.second}</span>`;
 
   const dataInfoCardBird = renderCardBirdInformation(object);
 

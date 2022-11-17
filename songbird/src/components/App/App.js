@@ -33,3 +33,11 @@ export const renderApp = () => {
     // button,
   );
 };
+
+export const updateApp = () => {
+  document.body.classList.remove(styles['body']);
+  const appContiner = document.querySelector('#app');
+  appContiner.innerHTML = '';
+
+  renderApp();
+};

@@ -4,18 +4,29 @@ import { BIRDS_DATA } from './const/birds';
 import { randArray } from './utils/random-array';
 import { shuffleArray } from './utils/shuffleArray';
 import { slidesPlugin } from './utils/slider-plugin';
+import { getLocalStorage } from './utils/local-storage';
+import { LOCAL_STORAGE_KEYS } from './const/local-storage';
+import { LANGUAGES } from './const/translation';
 
-export const store = {
+const storedLanguage = getLocalStorage(LOCAL_STORAGE_KEYS.LANGUAGE) || LANGUAGES.RU;
+
+export const initStore = (language) => ({
   stage: 0,
   birds: null,
   birdHidden: null,
   score: 0,
   audio: null,
   balls: 5,
+  // maxScore: 30
   allBalls: 30,
   isWin: false,
   over: false,
-  birdsArray: shuffleArray(BIRDS_DATA),
+  birdsArray: shuffleArray(BIRDS_DATA[language]),
+  language: language,
+});
+
+export const store = {
+  ...initStore(storedLanguage),
 };
 
 const init = () => {

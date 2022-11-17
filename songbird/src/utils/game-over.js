@@ -1,6 +1,8 @@
+import { store } from 'src';
+import { LANGUAGES } from 'src/const/translation';
 import { variants } from 'src/const/variants-win';
 
-export const generateResultsBlock = (results, lang = 'ru') => {
+export const generateResultsBlock = (results) => {
   let state;
   if (results > 0 && results < 30) {
     state = 'default';
@@ -13,7 +15,7 @@ export const generateResultsBlock = (results, lang = 'ru') => {
     state = 'lose';
   }
 
-  if (lang === 'ru') {
+  if (store.language === LANGUAGES.RU) {
     switch (state) {
       case 'win':
         variants.title = 'Поздравляем';

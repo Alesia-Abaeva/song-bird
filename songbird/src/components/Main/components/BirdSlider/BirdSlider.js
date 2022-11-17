@@ -1,5 +1,4 @@
 import { store } from 'src';
-import { BIRDS_DATA } from 'src/const/birds';
 import { elementsCreate } from 'src/utils/create-elements';
 import { TwoDimensional } from 'src/utils/create-matrix';
 import { leftArrow, rigthArrow } from 'src/utils/slider-arror';
