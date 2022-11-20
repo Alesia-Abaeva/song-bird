@@ -74,7 +74,6 @@ export const renderBirdList = (number) => {
         if (isFirstWin) {
           //выбран верный ответ с первого раза
           store.score += balls; // обновление глобального значения score
-          // TODO - значения уходят в минус!
         }
 
         if (store.stage == 5) {

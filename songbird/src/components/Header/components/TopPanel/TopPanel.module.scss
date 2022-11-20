@@ -53,10 +53,15 @@
 
 .top-panel_logo {
   background-image: url($logo);
-  width: 200px;
+  width: 100px;
   height: 55px;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: bottom;
+  @media (min-width: $tablet) {
+    width: 200px;
+    height: 55px;
+  }
 }
 
 .top-panel_score {
