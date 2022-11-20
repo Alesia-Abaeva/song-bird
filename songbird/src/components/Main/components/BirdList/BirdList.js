@@ -68,6 +68,7 @@ export const renderBirdList = (number) => {
       if (bird[i].name === store.birdHidden.name) {
         store.isWin = true; // навешивам цвет и звук для вариантов ответа
         nameItem.classList.add(styles['success']);
+        soundSucs.currentTime = 0;
         soundSucs.play();
 
         if (isFirstWin) {
@@ -96,6 +97,7 @@ export const renderBirdList = (number) => {
 
       switch (store.isWin) {
         case false:
+          soundErr.currentTime = 0;
           soundErr.play();
           nameItem.matches('.error') || --balls; // проверяю на наличие класса, если он есть - не отнимать
           nameItem.classList.add(styles['error']);
