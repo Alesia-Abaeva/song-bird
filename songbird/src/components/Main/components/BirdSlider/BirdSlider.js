@@ -40,7 +40,6 @@ export const renderSlider = () => {
   // добавляем птиц в видимую часть слайдера
   const addScrollContainer = (count) => {
     let activeBirds = matrixBirds[count];
-    console.log(matrixBirds[count]);
     // console.log(renderHideAudio(activeBirds[1].audio));
 
     for (let i = 0; i < activeBirds.length; i++) {
