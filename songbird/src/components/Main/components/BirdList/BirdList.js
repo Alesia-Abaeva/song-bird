@@ -64,6 +64,11 @@ export const renderBirdList = (number) => {
     ${bird[i].name}`;
 
     nameItem.onclick = (event) => {
+      const audio = document.getElementById('audio_bird');
+      console.log(audio, 'BIIIIIIRDS AU');
+
+      const icon = document.querySelector('.play');
+
       let pressBird;
       if (bird[i].name === store.birdHidden.name) {
         store.isWin = true; // навешивам цвет и звук для вариантов ответа
@@ -76,6 +81,8 @@ export const renderBirdList = (number) => {
           store.score += balls; // обновление глобального значения score
           soundSucs.currentTime = 0;
           soundSucs.play();
+          audio.pause();
+          icon.className = 'play player-icon';
         }
 
         if (store.stage == 5) {

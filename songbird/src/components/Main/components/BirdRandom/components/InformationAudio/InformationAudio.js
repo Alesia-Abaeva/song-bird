@@ -16,10 +16,11 @@ export const renderHideAudio = (sound) => {
 
   const audio = document.createElement('audio');
   audio.classList.add('audio');
+  audio.setAttribute('src', audioSrc);
   audio.setAttribute(
-    'src',
+    'id',
 
-    audioSrc,
+    'audio_bird',
   );
 
   store.audio = audio;
