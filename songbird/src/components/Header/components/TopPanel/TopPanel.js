@@ -8,6 +8,7 @@ export const renderTopPanel = () => {
   const topPanel = document.createElement('div');
   topPanel.classList.add(styles['header__top-panel']);
 
+  console.log(store);
   // LOGO
   const logo = document.createElement('div');
   logo.classList.add(styles['top-panel_logo']);
@@ -27,18 +28,19 @@ export const renderTopPanel = () => {
 
   const buttonEn = elementsCreate('button', 'top-panel_button');
   buttonEn.setAttribute('id', LANGUAGES.EN);
-  buttonEn.innerHTML = LANGUAGES.EN;
+  buttonEn.innerHTML = store.language;
   // если язык не английский, то не выполнять выражение справа
-  store.language === LANGUAGES.EN && buttonEn.classList.add('active-button-lang');
+  // store.language === LANGUAGES.EN && buttonEn.classList.add('active-button-lang');
   buttonEn.onclick = handleChangeLanguage;
 
-  const buttonRu = elementsCreate('button', 'top-panel_button');
-  buttonRu.setAttribute('id', LANGUAGES.RU);
-  buttonRu.innerHTML = LANGUAGES.RU;
-  store.language === LANGUAGES.RU && buttonRu.classList.add('active-button-lang');
-  buttonRu.onclick = handleChangeLanguage;
+  // const buttonRu = elementsCreate('button', 'top-panel_button');
+  // buttonRu.setAttribute('id', LANGUAGES.RU);
+  // buttonRu.innerHTML = LANGUAGES.RU;
+  // store.language === LANGUAGES.RU && buttonRu.classList.add('active-button-lang');
+  // buttonRu.onclick = handleChangeLanguage;
 
-  buttonContainer.append(buttonRu, buttonEn);
+  // buttonContainer.append(buttonRu, buttonEn);
+  buttonContainer.append(buttonEn);
 
   // SCORE
   const score = document.createElement('div');
@@ -49,6 +51,7 @@ export const renderTopPanel = () => {
   scoreH5.innerHTML = `${translation[store.language].score}: ${store.score}`;
   score.append(scoreH5);
 
+  topPanel.append(logo, score);
   topPanel.append(logo, buttonContainer, score);
 
   return topPanel;

@@ -68,12 +68,14 @@ export const renderBirdList = (number) => {
       if (bird[i].name === store.birdHidden.name) {
         store.isWin = true; // навешивам цвет и звук для вариантов ответа
         nameItem.classList.add(styles['success']);
-        soundSucs.currentTime = 0;
-        soundSucs.play();
+        // soundSucs.currentTime = 0;
+        // soundSucs.play();
 
         if (isFirstWin) {
           //выбран верный ответ с первого раза
           store.score += balls; // обновление глобального значения score
+          soundSucs.currentTime = 0;
+          soundSucs.play();
         }
 
         if (store.stage == 5) {

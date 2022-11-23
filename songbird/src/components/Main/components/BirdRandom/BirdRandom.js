@@ -23,6 +23,7 @@ export const renderBirdRandom = (nameBird = '******', image = COVER_CARDS) => {
   // обновление данныех в глобальном объекте
   // store.birdHidden = randArray(BIRDS_DATA[store.stage]);
   store.birdHidden = randArray(BIRDS_DATA[store.language][store.stage]);
+  console.log(store.birdHidden);
 
   const inf = elementsCreate('div', 'bird-random__container-info');
 
