@@ -1,6 +1,7 @@
 # songbird
 
-[songbird](https://rolling-scopes-school.github.io/alesia-abaeva-JSFE2022Q3/songbird/) приложение-викторина для распознавания птиц по их голосам. Проект создан в рамках задания [RS School JavaScript/Front-end](https://rs.school/js/).
+[songbird](https://rolling-scopes-school.github.io/alesia-abaeva-JSFE2022Q3/songbird/) приложение-викторина для распознавания птиц по их голосам. 
+Проект создан в рамках задания [RS School JavaScript/Front-end](https://rs.school/js/).
 
 ## Структура приложения
 
@@ -19,6 +20,10 @@
 - после последнего вопроса выводится страница с результатами игры
 
 ## Screenshot
+![image](https://user-images.githubusercontent.com/101274979/233976660-706c3d1d-0fbd-40eb-bf48-2f2f967010bf.png)
+![image](https://user-images.githubusercontent.com/101274979/233976831-e353eb12-a0ee-4adf-8efd-d4c7e384172f.png)
+![image](https://user-images.githubusercontent.com/101274979/233976911-58aae5f1-d244-48d4-89f4-cc73df933e4b.png)
+
 
 ## Технический стек
 
